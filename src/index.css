@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f1f3;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 6px;
+  border: 2px solid #f0f1f3;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+.critical-glow {
+  background: linear-gradient(90deg, #fef2f2 0%, #ffffff 60%);
+  border-left: 4px solid #c41e3a;
+}
+
+.vip-glow {
+  background: linear-gradient(90deg, #fffbeb 0%, #ffffff 60%);
+  border-left: 4px solid #b45309;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.25s ease-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scaleY(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.audio-bar {
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #0056b3;
+  outline-offset: 2px;
+}
+
+button,
+a,
+input {
+  transition: all 0.2s ease;
+}
+
+::selection {
+  background: rgba(0, 86, 179, 0.2);
+}
+
+button {
+  min-height: 44px;
+  min-width: 44px;
+}
