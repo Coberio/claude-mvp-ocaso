@@ -19,31 +19,31 @@ function App() {
   };
 
   return (
-    <div className="flex min-h-screen w-full bg-white">
-      {/* Sidebar - fixed 256px */}
-      <aside className="w-64 flex-shrink-0 bg-white">
+    <div className="h-full w-full flex overflow-hidden">
+      {/* Sidebar - 256px fijo */}
+      <div className="w-64 h-full flex-none">
         <Sidebar
           activeNav={activeNav}
           onNavChange={setActiveNav}
           activeDepartment={activeDepartment}
           onDepartmentChange={setActiveDepartment}
         />
-      </aside>
+      </div>
 
-      {/* Main content - flexible */}
-      <main className="flex-1 flex flex-col min-w-0 overflow-hidden">
+      {/* Lista de tareas - ocupa el espacio disponible */}
+      <div className="flex-1 h-full min-w-0">
         <TaskList
           tasks={MOCK_TASKS}
           selectedTaskId={selectedTask?.id ?? null}
           onTaskSelect={handleTaskSelect}
         />
-      </main>
+      </div>
 
-      {/* Context Blade - fixed 420px, conditional render */}
+      {/* Panel de contexto - 420px fijo */}
       {selectedTask && (
-        <aside className="w-[420px] flex-shrink-0 border-l-2 border-[#d1d5db] overflow-hidden">
+        <div className="w-[420px] h-full flex-none border-l-2 border-gray-300">
           <ContextBlade task={selectedTask} onClose={handleCloseBlade} />
-        </aside>
+        </div>
       )}
     </div>
   );
