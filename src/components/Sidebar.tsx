@@ -64,7 +64,7 @@ export function Sidebar({
   onDepartmentChange,
 }: SidebarProps) {
   return (
-    <aside className="w-64 h-full bg-[#f8f9fa] border-r-2 border-[#d1d5db] flex flex-col flex-shrink-0">
+    <aside className="h-full bg-[#f8f9fa] border-r-2 border-[#d1d5db] flex flex-col overflow-hidden">
       {/* Logo */}
       <div className="h-20 px-5 flex items-center gap-3 border-b-2 border-[#d1d5db] bg-white">
         <div className="w-12 h-12 rounded-xl bg-[#0056b3] flex items-center justify-center shadow-md">

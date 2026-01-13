@@ -19,33 +19,32 @@ function App() {
   };
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-white">
-      {/* Sidebar - Fixed width */}
-      <Sidebar
-        activeNav={activeNav}
-        onNavChange={setActiveNav}
-        activeDepartment={activeDepartment}
-        onDepartmentChange={setActiveDepartment}
-      />
+    <div className="flex min-h-screen w-full bg-white">
+      {/* Sidebar - fixed 256px */}
+      <aside className="w-64 flex-shrink-0 bg-white">
+        <Sidebar
+          activeNav={activeNav}
+          onNavChange={setActiveNav}
+          activeDepartment={activeDepartment}
+          onDepartmentChange={setActiveDepartment}
+        />
+      </aside>
 
-      {/* Main Content Area - Fills remaining space */}
-      <div className="flex flex-1 min-w-0 overflow-hidden">
-        {/* Task List - Shrinks when blade is open */}
-        <div className={`${selectedTask ? 'flex-1 min-w-[400px]' : 'flex-1'} overflow-hidden`}>
-          <TaskList
-            tasks={MOCK_TASKS}
-            selectedTaskId={selectedTask?.id ?? null}
-            onTaskSelect={handleTaskSelect}
-          />
-        </div>
+      {/* Main content - flexible */}
+      <main className="flex-1 flex flex-col min-w-0 overflow-hidden">
+        <TaskList
+          tasks={MOCK_TASKS}
+          selectedTaskId={selectedTask?.id ?? null}
+          onTaskSelect={handleTaskSelect}
+        />
+      </main>
 
-        {/* Context Blade - Fixed width, only shown when task selected */}
-        {selectedTask && (
-          <div className="flex-shrink-0 overflow-hidden">
-            <ContextBlade task={selectedTask} onClose={handleCloseBlade} />
-          </div>
-        )}
-      </div>
+      {/* Context Blade - fixed 420px, conditional render */}
+      {selectedTask && (
+        <aside className="w-[420px] flex-shrink-0 border-l-2 border-[#d1d5db] overflow-hidden">
+          <ContextBlade task={selectedTask} onClose={handleCloseBlade} />
+        </aside>
+      )}
     </div>
   );
 }

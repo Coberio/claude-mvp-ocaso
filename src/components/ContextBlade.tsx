@@ -282,7 +282,7 @@ export function ContextBlade({ task, onClose }: ContextBladeProps) {
   const ChannelIcon = channelIcon[task.channel];
 
   return (
-    <div className="w-[480px] h-full bg-white border-l-2 border-[#d1d5db] flex flex-col slide-in shadow-xl">
+    <div className="h-full bg-white flex flex-col slide-in overflow-hidden">
       {/* Header */}
       <header className="h-20 px-5 flex items-center justify-between border-b-2 border-[#d1d5db] bg-[#f8f9fa] flex-shrink-0">
         <div className="flex items-center gap-3">

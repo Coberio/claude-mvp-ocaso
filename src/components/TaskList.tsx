@@ -38,7 +38,7 @@ function formatTime(dateStr: string): string {
 
 export function TaskList({ tasks, selectedTaskId, onTaskSelect }: TaskListProps) {
   return (
-    <div className="h-full bg-white flex flex-col border-r-2 border-[#d1d5db]">
+    <div className="h-full bg-white flex flex-col overflow-hidden">
       {/* Header */}
       <header className="h-20 px-6 flex items-center justify-between border-b-2 border-[#d1d5db] bg-[#f8f9fa] flex-shrink-0">
         <div className="flex items-center gap-4">
